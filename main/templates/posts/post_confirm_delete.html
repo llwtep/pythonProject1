@@ -1,0 +1,12 @@
+{%extends 'main/layout.html'%}
+{%block title%}Delete page{%endblock%}
+{% block content %}
+    <div class="post-wrapper">
+        <h3>Do you want to delete the '{{object.title}}'?</h3>
+            <form method="post">
+         {%csrf_token%}
+        <button class="btn btn-danger" type="submit">Delete</button>
+        <a href="{%url 'main'%}" class="btn btn-warning">Cancel</a>
+        </form>
+    </div>
+{% endblock %}

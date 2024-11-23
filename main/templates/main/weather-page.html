@@ -1,0 +1,19 @@
+{%extends 'main/layout.html'%}
+{%block title%}main page{%endblock%}
+{% block content %}
+    <h1>The temperature in {{city_name}}: {{temp}}°C</h1>
+    <h3>The weather: {{description}}</h3>
+    <p>Humidity: {{humidity}}g/kg</p>
+    <p>Speed of wind: {{speed}}m/s</p>
+
+<form action="" method="post">
+    {%csrf_token%}
+    <label for="weather">Enter city name to know the weather</label>
+    <input type="text" id="weather" name="city_name_input" class="form-control mb-4">
+    <button type="submit" class="btn btn-info">Submit</button>
+</form>
+{%if messages%}
+    <div>{%for message in messages%}{{message}}{%endfor%}</div>
+
+{%endif%}
+{%endblock%}
